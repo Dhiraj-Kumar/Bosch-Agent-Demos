@@ -5,9 +5,15 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "chromadb>=1.5.5",
     "langchain>=1.2.13",
+    "langchain-chroma>=1.1.0",
+    "langchain-community>=0.4.1",
     "langchain-ollama>=1.0.1",
+    "langchain-text-splitters>=1.1.1",
     "langgraph-checkpoint-postgres>=3.0.5",
     "psycopg-binary>=3.3.3",
+    "pypdf>=6.9.2",
     "python-dotenv>=1.2.2",
+    "scikit-learn>=1.8.0",
 ]
