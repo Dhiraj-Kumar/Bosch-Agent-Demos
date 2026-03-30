@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .task-input {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .task-input input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .task-input button {
+            padding: 10px 15px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5cb85c;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .task-input button:hover {
+            background-color: #4cae4c;
+        }
+        .task-list {
+            margin-top: 20px;
+        }
+        .task-item {
+            background-color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .remove-button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d9534f;
+            color: white;
+            cursor: pointer;
+        }
+        .remove-button:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task Management App</h1>
+    <div class="task-input">
+        <input type="text" id="task" placeholder="Enter a new task..." />
+        <button id="submit-task">Add Task</button>
+    </div>
+    <div class="task-list" id="task-list"></div>
+
+    <script>
+        const submitButton = document.getElementById('submit-task');
+        const taskInput = document.getElementById('task');
+        const taskList = document.getElementById('task-list');
+
+        submitButton.addEventListener('click', () => {
+            const taskValue = taskInput.value.trim();
+            if (taskValue) {
+                const taskItem = document.createElement('div');
+                taskItem.className = 'task-item';
+                taskItem.innerHTML = `
+                    <span>${taskValue}</span>
+                    <button class="remove-button">Remove</button>
+                `;
+                taskList.appendChild(taskItem);
+                taskInput.value = '';
+
+                const removeButton = taskItem.querySelector('.remove-button');
+                removeButton.addEventListener('click', () => {
+                    taskList.removeChild(taskItem);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

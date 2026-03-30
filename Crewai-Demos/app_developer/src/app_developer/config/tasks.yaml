@@ -1,0 +1,21 @@
+build_frontend:
+  description: >
+    Create a simple frontend interface for a {app_name} app. The UI should include below requirements:
+    {frontend_requirements}
+    The UI should integrate the API endpoint created by backend_engineer agent
+  expected_output: >
+    A single HTML file containing valid HTML and CSS code.
+    IMPORTANT: Ouput ONLY the raw HTML code without any markdown formatting, code block delimeters or backticks.
+    The output shoudl be valid HTML code that can be directly saved into a file and executed.
+  agent: frontend_engineer
+
+build_backend:
+  description: >
+    Create a REST API using Node.js and Express.js for {app_name}.
+    The API should support below requirements:
+    {backend_requirements}
+  expected_output: >
+    A single Javascript file containing a working Express.js server.
+    IMPORTANT: Ouput ONLY the raw HTML code without any markdown formatting, code block delimeters or backticks.
+    The output should be valid JavaScript code that can be directly save into a file and executed.
+  agent: backend_engineer
